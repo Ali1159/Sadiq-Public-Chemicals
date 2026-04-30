@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sadiq Public Chemicals | Official Portal</title>
+    
+    <!-- Fonts and Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --brand-red: #dc2626;
+            --brand-yellow: #facc15;
+            --slate-900: #0f172a;
+            --slate-500: #64748b;
+            --bg-surface: #f8fafc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--slate-900); overflow-x: hidden; background-color: #f4f4f4; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .red { color: var(--brand-red); }
+
+        /* Header with HUGE Logo and Text */
+        header { 
+            background: #fff; 
+            border-bottom: 4px solid var(--brand-red); 
+            padding: 40px 0; /* Extra padding for the larger elements */
+        }
+        
+        .header-content {
+            display: flex;
+            flex-direction: column; /* Stack logo on top of text */
+            justify-content: center; 
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Large metallic red logo (image_10.png) */
+        .company-logo {
+            height: 180px; /* Increased massively */
+            width: auto;
+            max-width: 100%;
+            filter: drop-shadow(0 10px 15px rgba(220, 38, 38, 0.2)); /* Adds a nice subtle glow/shadow */
+        }
+
+        /* Big, bold company name */
+        .company-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 56px; /* BIG letters */
+            font-weight: 900;
+            color: var(--slate-900);
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+
+        /* Main Announcement Section */
+        .announcement { background: var(--brand-red); color: white; padding: 60px 24px; text-align: center; }
+        .badge-container { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        .badge { background: var(--brand-yellow); color: #000; font-size: 14px; padding: 6px 16px; font-weight: 900; text-transform: uppercase; border-radius: 20px; }
+        .display-text { font-family: 'Outfit'; font-size: 54px; font-weight: 900; line-height: 1.1; margin-bottom: 10px; }
+        
+        /* Confinement Box */
+        .confinement-box { background: white; color: var(--slate-900); max-width: 800px; margin: -30px auto 30px; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-top: 6px solid #000; text-align: center; position: relative; z-index: 10; }
+        .confinement-box h3 { font-family: 'Outfit'; font-size: 24px; color: var(--brand-red); text-transform: uppercase; margin-bottom: 15px; }
+        .confinement-list { list-style: none; font-size: 16px; font-weight: 700; line-height: 1.6; }
+        .confinement-list li { margin-bottom: 8px; }
+        
+        /* Note Box */
+        .note-box { max-width: 800px; margin: 0 auto 30px; background: rgba(250, 204, 21, 0.2); border: 2px dashed var(--brand-yellow); padding: 20px; border-radius: 10px; display: flex; align-items: flex-start; gap: 15px; }
+        .note-tag { background: #ea580c; color: white; padding: 5px 12px; font-weight: 900; border-radius: 5px; text-transform: uppercase; letter-spacing: 1px; }
+        .note-text { font-weight: 600; font-size: 15px; color: var(--slate-900); line-height: 1.5; text-align: left; }
+
+        /* Order Instructions Grid */
+        .order-grid { max-width: 800px; margin: 0 auto 50px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .instruction-card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: left; border-left: 4px solid var(--brand-red); }
+        .instruction-card h4 { font-family: 'Outfit'; font-size: 18px; margin-bottom: 10px; }
+        .instruction-card p { font-size: 14px; line-height: 1.6; font-weight: 500; }
+        
+        /* Action Area */
+        .action-area { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: center; }
+        .contact-info { background: #1e293b; color: white; padding: 20px; border-radius: 10px; text-align: center; }
+        .contact-info p { font-size: 18px; font-weight: 800; font-family: 'Outfit'; margin: 5px 0; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .contact-info i { color: var(--brand-yellow); }
+        
+        .whatsapp-btn { background: #25D366; color: white; text-decoration: none; padding: 20px; border-radius: 10px; font-size: 20px; font-weight: 900; font-family: 'Outfit'; text-align: center; display: flex; justify-content: center; align-items: center; gap: 10px; transition: 0.3s; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); text-transform: uppercase; }
+        .whatsapp-btn:hover { background: #128C7E; transform: translateY(-2px); }
+        .limited-tag { display: block; text-align: center; color: var(--brand-red); font-weight: 900; font-size: 14px; margin-top: 15px; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .company-name { font-size: 32px; } /* Scales down text for mobile */
+            .company-logo { height: 120px; } /* Scales down logo for mobile */
+            .display-text { font-size: 36px; }
+            .order-grid, .action-area { grid-template-columns: 1fr; }
+            .note-box { flex-direction: column; align-items: center; text-align: center; }
+            .note-text { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <!-- User's metallic red logo (image_10.png) -->
+            <img src="image_10.png" alt="SPC Logo" class="company-logo">
+            <!-- Big visible company name -->
+            <h1 class="company-name">Sadiq <span class="red">Public</span> Chemicals</h1>
+        </div>
+    </header>
+
+    <!-- Main Announcement -->
+    <section class="announcement">
+        <div class="container">
+            <div class="badge-container">
+                <span class="badge">New Arrival</span>
+                <span class="badge">2nd Batch 2026</span>
+            </div>
+            <h2 class="display-text">Strychnine Hydrochloride<br>Available</h2>
+        </div>
+    </section>
+
+    <!-- Content Area -->
+    <main class="container">
+        
+        <!-- Confinement Rules -->
+        <div class="confinement-box">
+            <h3>Supply is Strictly Confined To</h3>
+            <ul class="confinement-list">
+                <li>Chief Officers District Health Cantonments</li>
+                <li>Government and Semi Government Agencies Only:</li>
+                <li style="color: var(--slate-500);">Municipal Corporations, Cantonments, Municipalities of Distt. and Tehsil Councils</li>
+            </ul>
+        </div>
+
+        <!-- Note Box -->
+        <div class="note-box">
+            <div class="note-tag">Note:</div>
+            <div class="note-text">
+                Each 50-gram bottle purchased from Sadiq Public Chemicals can eliminate 70 to 100 stray dogs, depending on the dogs' weight.
+            </div>
+        </div>
+
+        <!-- Ordering Instructions -->
+        <div class="order-grid">
+            <div class="instruction-card">
+                <h4>Institutions that wish to place orders</h4>
+                <p>Please review the procurement requirements carefully before contacting our regional desk.</p>
+            </div>
+            <div class="instruction-card" style="border-left-color: var(--brand-yellow);">
+                <h4>Official Procedure</h4>
+                <p>Are requested to submit their orders immediately, with their personal attestation under their seal and signature on the letterhead of their respective institution along with I.D. Number.</p>
+            </div>
+        </div>
+
+        <!-- Action & Contact Area -->
+        <div class="action-area">
+            <div class="contact-info">
+                <p><i data-lucide="phone"></i> +92 301 8111444</p>
+                <p><i data-lucide="message-circle"></i> +92 335 6195050</p>
+            </div>
+            
+            <div>
+                <!-- Direct WhatsApp Link to the 335 number -->
+                <a href="https://wa.me/923356195050?text=Hello,%20I%20am%20contacting%20regarding%20the%202nd%20Batch%202026%20of%20Strychnine%20Hydrochloride." class="whatsapp-btn" target="_blank">
+                    <i data-lucide="shopping-cart"></i> Order Now
+                </a>
+                <span class="limited-tag">Limited Stock</span>
+            </div>
+        </div>
+
+    </main>
+
+    <footer style="text-align: center; padding: 40px 20px; margin-top: 40px; color: #64748b; font-size: 12px; font-weight: 700; text-transform: uppercase;">
+        <p>© 2026 Sadiq Public Chemicals.</p>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
